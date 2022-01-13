@@ -115,8 +115,8 @@ const Home = () => {
     router.push(RouteMap.Result)
   }
 
-  const handlePageSizeUpdate = (e: any) => {
-    dispatchStore({ type: 'SET_PAGE_SIZE', payload: e.target.value })
+  const handlePageSizeUpdate = (value: any) => {
+    dispatchStore({ type: 'SET_PAGE_SIZE', payload: value })
   }
 
   const handleInputChange = (e: any) => {
@@ -139,9 +139,7 @@ const Home = () => {
             <CounterDisplay>{pageSize}</CounterDisplay>
             <CounterUnit>results</CounterUnit>
           </CounterWrapper>
-          <div className="mx-[15px]">
-            <AppSlider value={pageSize} onChange={handlePageSizeUpdate} />
-          </div>
+          <AppSlider value={pageSize} onChange={handlePageSizeUpdate} />
           {!isClientAboveMobile &&
             <Toolbar>
               <AppDivider enableLine bottom={80} />

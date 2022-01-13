@@ -1,94 +1,72 @@
-import { styled } from "@mui/system"
-import SliderUnstyled from '@mui/base/SliderUnstyled';
+import Slider from 'rc-slider'
+import 'rc-slider/assets/index.css'
 
-const CustomSlider = styled(SliderUnstyled)(() => {
-  return {
-    width: 'auto',
-    '& .MuiSlider-track': {
-      display: 'block',
-      position: 'absolute',
-      height: '8px',
-      borderRadius: '33px',
-      background: 'linear-gradient(270deg, #FFD25F 0.13%, #FF5C01 100%)'
-    },
-    '& .MuiSlider-thumb': {
-      position: 'absolute',
-      height: '20px',
-      width: '20px',
-      marginTop: '-5px',
-      marginLeft: '-5px',
-      borderRadius: '50%',
-      border: '6px solid #ffd05d',
-      backgroundColor: '#1b1b1b',
-      '&.Mui-active': {
-        boxShadow: '0 0 0 0.25rem #ffffff'
-      }
-    },
-    '& .MuiSlider-rail': {
-      display: 'block',
-      position: 'absolute',
-      width: '100%',
-      // width: 'auto',
-      height: '8px',
-      borderRadius: '33px',
-      backgroundColor: '#ffffff',
-      opacity: '0.3',
-    },
-    '& .MuiSlider-markLabel': {
-      opacity: .5,
-      color: '#ffffff'
-    },
-    '& .MuiSlider-markLabelActive': {
-      opacity: 1
-    }
-  }
-})
-
-const marks = [
-  {
-    value: 3,
+const marks = {
+  3: {
+    style: { color: '#ffffff', opacity: .5, marginTop: '6px' },
     label: '3',
   },
-  {
-    value: 6,
+  6: {
+    style: { color: '#ffffff', opacity: .5, marginTop: '6px' },
     label: '6',
   },
-  {
-    value: 9,
+  9: {
+    style: { color: '#ffffff', opacity: .5, marginTop: '6px' },
     label: '9',
   },
-  {
-    value: 12,
+  12: {
+    style: { color: '#ffffff', opacity: .5, marginTop: '6px' },
     label: '12',
   },
-  {
-    value: 15,
+  15: {
+    style: { color: '#ffffff', opacity: .5, marginTop: '6px' },
     label: '15',
   },
-  {
-    value: 50,
+  50: {
+    style: { color: '#ffffff', opacity: .5, marginTop: '6px' },
     label: '50',
   }
-]
-
-function calculateValue(value: number) {
-  // return 2 ** value
-  return value
 }
 
-// TODO types
-const AppSlider = ({ value, onChange, step = 3 }: { value: any, onChange: any, step?: number }) => {
+// TODO logarithmic slider display
+const AppSlider = ({ value, onChange, defaultValue }: { value: any, onChange: any, defaultValue?: any }) => {
   return (
-    <CustomSlider
-      data-cid='AppSlider'
-      value={value}
+    <Slider
+      defaultValue={defaultValue === undefined ? value : defaultValue}
       onChange={onChange}
-      // step={step}
-      step={null}
+      value={value}
+      // step={null}
+      marks={marks}
+      dotStyle={{ display: 'none' }}
       min={3}
       max={50}
-      marks={marks}
-      scale={calculateValue}
+      railStyle={{
+        display: 'block',
+        position: 'absolute',
+        width: '100%',
+        height: '8px',
+        borderRadius: '33px',
+        backgroundColor: '#ffffff',
+        opacity: '0.3',
+      }}
+      trackStyle={{
+        display: 'block',
+        position: 'absolute',
+        height: '8px',
+        borderRadius: '33px',
+        background: 'linear-gradient(270deg, #FFD25F 0.13%, #FF5C01 100%)'
+      }}
+      handleStyle={{
+        position: 'absolute',
+        height: '20px',
+        width: '20px',
+        marginTop: '-5px',
+        marginLeft: '-5px',
+        borderRadius: '50%',
+        border: '6px solid #ffd05d',
+        backgroundColor: '#1b1b1b',
+      }}
+    // handle={(props) => { }}
     />
   )
 }
