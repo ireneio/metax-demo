@@ -10,6 +10,11 @@ const theme = createTheme({
       xl: 1440,
     },
   },
+  palette: {
+    primary: {
+      main: '#181818'
+    }
+  }
 })
 
 export default theme
