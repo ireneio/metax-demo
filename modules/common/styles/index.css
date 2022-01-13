@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  /* padding: 0;
+  margin: 0; */
+  background-color: #181818 !important;
+  overflow-x: hidden !important;
+}
+
+.textGradientBase {
+  background-clip: text;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
