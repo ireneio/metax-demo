@@ -19,7 +19,7 @@ const CustomButton = styled(Button)({
   }
 })
 
-const AppButton = ({ children, onClick }: { children: React.ReactNode, onClick: any }) => {
+const AppButton = ({ children, onClick }: { children: React.ReactNode, onClick?: any }) => {
   return <CustomButton data-cid='AppButton' onClick={onClick}>{children}</CustomButton>
 }
 
