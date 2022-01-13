@@ -27,9 +27,12 @@ const Img = styled(Image)({
   color: '#fff'
 })
 
+const Alt = require('../../../../assets/images/placeholder150.png')
 const handleImageError = (e: any) => {
+  console.log('eeee', e);
+
   // e.preventDefault()
-  // e.target.src = Alt
+  e.target.src = Alt
 }
 
 const SearchCard = ({ src, alt = '', title, subtitle, loading = false }: Props) => {
