@@ -34,7 +34,7 @@ function App({ Component, pageProps, emotionCache = clientSideEmotionCache }: Ap
               <Component {...pageProps} />
               <style jsx global>{`
                 body {
-                  background: #181818
+                  background: #181818;
                 }
               `}</style>
             </div>
