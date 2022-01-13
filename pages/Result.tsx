@@ -48,7 +48,7 @@ const Result = () => {
   const router = useRouter()
   const { ref: lastAnchor, inView } = useInView()
 
-  const { data, error, isValidating } = useSWR('/users/all', fetcher.bind(null, {
+  const { data, isValidating } = useSWR('/users/all', fetcher.bind(null, {
     method: 'get',
     url: '/users/all',
     query: {
@@ -68,6 +68,7 @@ const Result = () => {
         }
       })
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inView])
 
   useEffect(() => {
