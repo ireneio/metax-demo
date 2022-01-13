@@ -32,6 +32,11 @@ function App({ Component, pageProps, emotionCache = clientSideEmotionCache }: Ap
             <div data-cid='App'>
               <CssBaseline />
               <Component {...pageProps} />
+              <style jsx global>{`
+                body {
+                  background: #181818
+                }
+              `}</style>
             </div>
           </ThemeProvider>
         </ReduxProvider>
